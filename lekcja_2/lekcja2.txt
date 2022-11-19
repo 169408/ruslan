@@ -1,0 +1,58 @@
+Zadanie 1
+
+DELETE FROM postac WHERE rodzaj = 'wiking' and nazwa != 'Bjorn' ORDER BY wiek DESC LIMIT 2;
+SHOW CREATE TABLE walizka;
+
+ALTER TABLE walizka DROP FOREIGN KEY walizka_ibfk_1;
+ALTER TABLE przetwory DROP FOREIGN KEY przetwory_ibfk_1;
+ALTER TABLE przetwory DROP FOREIGN KEY przetwory_ibfk_2;
+ALTER TABLE postac DROP PRIMARY KEY;
+
+Zadanie 2
+
+ALTER TABLE postac ADD COLUMN pesel char(11) NOT NULL FIRST;
+UPDATE postac SET pesel='23389110811' WHERE id_postaci = 1;
+UPDATE postac SET pesel='23379121112' WHERE id_postaci = 2;
+UPDATE postac SET pesel='23333112121' WHERE id_postaci = 3;
+UPDATE postac SET pesel='23388030113' WHERE id_postaci = 5;
+UPDATE postac SET pesel='23001092314' WHERE id_postaci = 7;
+UPDATE postac SET pesel='23395012315' WHERE id_postaci = 8;
+
+ALTER TABLE postac ADD PRIMARY KEY(pesel);
+
+ALTER TABLE postac MODIFY COLUMN rodzaj enum('wiking', 'ptak', 'kobieta', 'syrena');
+
+INSERT INTO postac VALUES('22309042122', 9, 'Gertruda Nieszczera', 'syrena', '1909-04-21', 113, NULL, NULL);
+
+Zadanie 3
+
+UPDATE postac SET id_statku = 'mryt' WHERE rodzaj = 'wiking' and nazwa LIKE '%a%';
+
+UPDATE statek SET max_ladownosc = max_ladownosc * 0.7 WHERE data_wodowania BETWEEN '1900-01-01' AND '1999-12-31';
+
+UPDATE postac SET wiek = NULL WHERE wiek > 1000;
+
+Zadanie 4
+
+ALTER TABLE postac MODIFY COLUMN rodzaj enum('wiking', 'ptak', 'kobieta', 'syrena', 'waz');
+INSERT INTO postac VALUES('23399030216', 10, 'Loko', 'waz', '1999-03-02', 23, NULL, NULL);
+
+CREATE TABLE marynarz(pesel char(11) NOT NULL, PRIMARY KEY(pesel), id_postaci int NOT NULL, nazwa varchar(40), rodzaj enum('wiking', 'ptak', 'kobieta', 'syrena', 'wa
+z'), data_up date, wiek int unsigned, funkcja char(30), id_statku varchar(30), FOREIGN
+ KEY(id_statku) REFERENCES statek(nazwa_statku));
+INSERT INTO marynarz SELECT * FROM postac WHERE id_statku IS NOT NULL;
+
+Zadanie 5
+
+UPDATE postac SET id_statku IS NULL WHERE id_statku IS NOT NULL;
+
+DELETE FROM postac WHERE rodzaj = 'wiking'  ORDER BY RAND() LIMIT 1;
+
+DELETE FROM statek;
+
+DROP TABLE statek;
+
+CREATE TABLE zwierz(id int unsigned auto_increment, PRIMARY KEY(id), nazwa varchar(40), wiek int unsigned);
+
+INSERT INTO zwierz (id, nazwa, wiek) SELECT id_postaci, nazwa, wiek FROM
+postac WHERE rodzaj != 'wiking' and rodzaj != 'kobieta';
