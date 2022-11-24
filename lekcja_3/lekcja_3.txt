@@ -1,0 +1,44 @@
+Zadanie 1
+
+CREATE TABLE zhukotynskyir.kreatura SELECT * FROM wikingowie.kreatura;
+CREATE TABLE zhukotynskyir.zasob SELECT * FROM wikingowie.zasob;
+CREATE TABLE zhukotynskyir.ekwipunek SELECT * FROM wikingowie.ekwipunek;
+
+SELECT * FROM zasob;
+
+SELECT * FROM zasob WHERE rodzaj = 'jedzenie';
+
+SELECT idZasobu, ilosc FROM ekwipunek WHERE idKreatury = 1 OR idKreatury = 3 OR idKreatury = 5;
+
+Zadanie 2
+
+SELECT * FROM kreatura WHERE rodzaj != 'wiedzma' AND waga >= 50;
+
+SELECT * FROM zasob WHERE waga >= 2 AND waga <= 5;
+
+SELECT * FROM kreatura WHERE nazwa LIKE '%or%' AND waga >= 30 AND waga <= 70;
+
+Zadanie 3
+
+SELECT * FROM zasob WHERE MONTH(dataPozyskania) = 7 OR MONTH(dataPozyskania) = 8;
+
+SELECT * FROM zasob WHERE rodzaj IS NOT NULL ORDER BY waga ASC;
+
+SELECT * FROM kreatura ORDER BY dataUr ASC LIMIT 5;
+
+Zadanie 4
+
+SELECT CONCAT(rodzaj) FROM zasob GROUP BY rodzaj; (lub) SELECT CONCAT(rodzaj) AS rodzaj, COUNT(rodzaj) AS ilosc FROM zasob GROUP BY rodzaj;
+
+SELECT CONCAT(nazwa, ' - ', rodzaj) AS 'nazwa - rodzaj' FROM kreatura WHERE rodzaj LIKE 'wi%';
+
+SELECT (ilosc * waga) AS 'waga' FROM zasob WHERE YEAR(dataPozyskania) BETWEEN 2000 AND 2007;
+
+Zadanie 5
+
+SELECT (ilosc * waga) AS 'waga', (ilosc * waga * 0.3) AS 'waga odpadkow' FROM zasob WHERE rodzaj = 'jedzenie'; lub SELECT SUM(ilosc * waga) AS 'waga', SUM(ilosc * waga * 0.3) AS 'waga odpadkow' FROM zasob WHERE rodzaj = 'jedzenie';
+
+SELECT * FROM zasob WHERE rodzaj IS NULL;
+
+SELECT CONCAT(rodzaj) AS rodzaj, COUNT(*) AS ilosc FROM zasob WHERE nazwa LIKE 'ba%' OR nazwa LIKE '%os' GROUP BY rodzaj;
+
