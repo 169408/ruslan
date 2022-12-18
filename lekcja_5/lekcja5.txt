@@ -1,0 +1,40 @@
+Zadanie 1
+
+INSERT INTO zhukotynskyir.kreatura SELECT * FROM wikingowie.kreatura;
+CREATE TABLE zhukotynskyir.uczestnicy SELECT * FROM wikingowie.uczestnicy;
+CREATE TABLE zhukotynskyir.etapy_wyprawy SELECT * FROM wikingowie.etapy_wyprawy;
+CREATE TABLE zhukotynskyir.sektor SELECT * FROM wikingowie.sektor;
+CREATE TABLE zhukotynskyir.wyprawa SELECT * FROM wikingowie.wyprawa;
+
+SELECT kreatura.nazwa FROM kreatura WHERE idKreatury NOT IN (SELECT id_uczestnika FROM uczestnicy);
+
+SELECT wyprawa.nazwa, SUM(ekwipunek.ilosc) AS ilosc_ekwipunku FROM wyprawa LEFT JOIN uczestnicy ON wyprawa.id_wyprawy = uczestnicy.id_wyprawy LEFT JOIN ekwipunek ON uczestnicy.id_uczestnika = ekwipunek.idKreatury GROUP BY wyprawa.nazwa;
+
+Zadanie 2
+
+SELECT wyprawa.nazwa, COUNT(uczestnicy.id_uczestnika), GROUP_CONCAT(kreatura.nazwa) FROM wyprawa LEFT JOIN uczestnicy ON wyprawa.id_wyprawy = uczestnicy.id_wyprawy LEFT JOIN kreatura ON uczestnicy.id_uczestnika = kreatura.idKreatury GROUP BY wyprawa.nazwa;
+
+SELECT etapy_wyprawy.idEtapu, sektor.nazwa, wyprawa.data_rozpoczecia, wyprawa.kierownik FROM etapy_wyprawy LEFT JOIN sektor ON etapy_wyprawy.sektor = sektor.id_sektora JOIN wyprawa ON etapy_wyprawy.idWyprawy = wyprawa.id_wyprawy ORDER BY wyprawa.data_rozpoczecia, etapy_wyprawy.kolejnosc;
+
+Zadanie 3
+
+SELECT sektor.nazwa, IFNULL(COUNT(etapy_wyprawy.sektor), 0) FROM sektor LEFT JOIN etapy_wyprawy ON sektor.id_sektora = etapy_wyprawy.sektor GROUP BY sektor.nazwa;
+
+SELECT distinct(kreatura.nazwa), IF(IFNULL(uczestnicy.id_uczestnika, 0)>0, "bral udzial w wyprawie", "nie bral udzia w wyprawie") FROM kreatura LEFT JOIN
+ uczestnicy ON kreatura.idKreatury = uczestnicy.id_uczestnika;
+
+Zadanie 4
+
+SELECT wyprawa.nazwa, SUM(length(etapy_wyprawy.dziennik)) AS 'liczbaZnakow' FROM wyprawa LEFT JOIN etapy_wyprawy ON wyprawa.id_wyprawy = etapy_wyprawy.idWyprawy GROUP BY wyprawa.nazwa HAVING liczbaZnakow < 400 OR liczbaZnakow IS NULL;
+
+SELECT wyprawa.id_wyprawy, SUM(zasob.waga*ekwipunek.ilosc) FROM wyprawa LEFT JOIN uczestnicy ON wyprawa.id_wyprawy = uczestnicy.id_wyprawy LEFT JOIN ekwipunek ON uczestnicy.id_uczestnika = ekwipunek.idKreatury JOIN zasob ON ekwipunek.idZasobu = zasob.idZasobu GROUP BY wyprawa.id_wyprawy;
+
+
+SELECT wyprawa.id_wyprawy, COUNT(uczestnicy.id_wyprawy) AS 'iloscd' FROM wyprawa LEFT JOIN uczestnicy ON wyprawa.id_wyprawy = uczestnicy.id_wyprawy GROUP BY wyprawa.id_wyprawy;
+
+SELECT uczestnicy.id_wyprawy, COUNT(distinct(uczestnicy.id_uczestnika)) AS liczbaUczestnikow, SUM(zasob.waga*ekwipunek.ilosc)/COUNT(distinct(uczestnicy.id_uczestnika)) AS sredniaWaga FROM uczestnicy LEFT JOIN ekwipunek ON uczestnicy.id_uczestnika = ekwipunek.idKreatury LEFT JOIN zasob ON ekwipunek.idZasobu = zasob.idZasobu GROUP BY uczestnicy.id_wyprawy;
+
+Zadanie 5
+
+SELECT distinct(kreatura.nazwa), DATEDIFF(wyprawa.data_rozpoczecia, kreatura.dataUr) AS 'dni' FROM kreatura JOIN wyprawa WHERE wyprawa.kierownik IN (SELECT idKreatury
+FROM kreatura WHERE nazwa = 'Dziadek');
