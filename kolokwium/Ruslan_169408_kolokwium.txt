@@ -1,0 +1,49 @@
+\T RuslanZhukotynskyi
+
+Zadanie 4a
+
+CREATE TABLE Benefit(id_benefitu INT, PRIMARY KEY(id_benefitu), nazwa VARCHAR(30) NOT NULL, cena FLOAT, opis LONGTEXT, rodzaj enum('lekarz', 'sport', 'przedszkole'));
+
+Zadanie 4b
+
+CREATE TABLE Uzytkownik(id_uzytkownika INT NOT NULL, PRIMARY KEY(id_uzytkownika), rodzaj enum('pracownik', 'prezes', 'rodzina') DEFAULT 'pracownik', imie VARCHAR(32) NOT NULL, nazwisko VARCHAR(20) NOT NULL, zarobki INT unsigned DEFAULT 2000, dataur date, id_benefitu INT, FOREIGN KEY(id_benefitu) REFERENCES Benefit(id_benefitu) ON DELETE CASCADE);
+
+Zadanie 5
+
+INSERT INTO zhukotynskyir.Benefit(id_benefitu, nazwa, cena, rodzaj, opis) SELECT zasob.idZasobu, zasob.nazwa, zasob.waga, 'sport', NULL FROM wikingowie.zasob;
+
+Zadanie 6
+
+ALTER TABLE Uzytkownik ALTER rodzaj SET DEFAULT 'prezes';
+
+Zadanie 7
+
+UPDATE Benefit SET nazwa = 'Granie' WHERE nazwa LIKE '%an%';
+
+Zadanie 8
+
+DELETE FROM Benefit WHERE cena > 76;
+
+Zadanie 9
+
+Punkt a)
+SELECT * FROM zawodnik WHERE klub IS NOT NULL AND dataUrodzenia BETWEEN '1985-01-01' AND '1999-12-31' ORDER BY dataUrodzenia LIMIT 3;
+
+Punkt b)
+SELECT kraj.idKraju, kraj.nazwa, COUNT(zawodnik.idZawodnika) AS 'liczba_zawodnikow' FROM kraj LEFT JOIN zawodnik ON kraj.idKraju = zawodnik.idKraju WHERE YEAR(zawodnik.dataUrodzenia) >= 1990 AND YEAR(zawodnik.dataUrodzenia) <= 1999 GROUP BY kraj.idKraju;
+
+Punkt c)
+SELECT AVG(wyniki.wynik) SELECT * FROM kraj
+
+Punkt d)
+SELECT CONCAT(zawodnik.imie, ' ', zawodnik.nazwisko), CONCAT(kolega.imie, ' ', kolega.nazwisko) FROM zawodnik INNER JOIN zawodnik ON zawodnik.idZawodnika + 1 = kolega.idZawodnika HAVING YEAR(zawodnik.dataUrodzenia) = YEAR(kolega.dataUrodzenia);
+
+Punkt e)
+SELECT zawodnik.idZawodnika, COUNT(wyniki.idKonkurencji) AS 'liczba_zawodow' FROM zawodnik LEFT JOIN wyniki ON zawodnik.idZawodnika = wyniki.idZawodnika GROUP BY zawodnik.idZawodnika HAVING liczba_zawodow >= 3;
+
+Punkt f)
+SELECT kraj.nazwa, miejsce_zawodow.idMiejsca, konkurencja.idKonkurencji FROM kraj LEFT JOIN miejsce_zawodow ON kraj.idKraju = miejsce_zawodow.idKraju LEFT JOIN konkurencja ON miejsce_zawodow.idMiejsca = konkurencja.idMiejsca WHERE konkurencja.idKonkurencji IS NULL;
+
+Punkt g)
+
+SELECT kraj.nazwa FROM kraj WHERE kraj.nazwa IN(SELECT kraj.nazwa FROM kraj LEFT JOIN miejsce_zawodow ON kraj.idKraju = miejsce_zawodow.idKraju GROUP BY kraj.nazwa HAVING COUNT(miejsce_zawodow.idKraju) = 1) ORDER BY kraj.nazwa;
