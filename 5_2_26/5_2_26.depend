@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1682151590 source:d:\ruslangit\psc169408\psc_cw8\lab_8_9\5_2_26\main.c
+	<stdio.h>
+	<stdlib.h>
+	<wchar.h>
+	<string.h>
+	<ctype.h>
+
