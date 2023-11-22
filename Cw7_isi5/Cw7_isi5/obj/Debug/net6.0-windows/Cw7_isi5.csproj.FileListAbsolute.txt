@@ -1,0 +1,17 @@
+C:\ruslanGit\Cw7_isi5\Cw7_isi5\bin\Debug\net6.0-windows\Cw7_isi5.exe
+C:\ruslanGit\Cw7_isi5\Cw7_isi5\bin\Debug\net6.0-windows\Cw7_isi5.deps.json
+C:\ruslanGit\Cw7_isi5\Cw7_isi5\bin\Debug\net6.0-windows\Cw7_isi5.runtimeconfig.json
+C:\ruslanGit\Cw7_isi5\Cw7_isi5\bin\Debug\net6.0-windows\Cw7_isi5.dll
+C:\ruslanGit\Cw7_isi5\Cw7_isi5\bin\Debug\net6.0-windows\Cw7_isi5.pdb
+C:\ruslanGit\Cw7_isi5\Cw7_isi5\obj\Debug\net6.0-windows\Cw7_isi5.csproj.AssemblyReference.cache
+C:\ruslanGit\Cw7_isi5\Cw7_isi5\obj\Debug\net6.0-windows\Cw7_isi5.Form1.resources
+C:\ruslanGit\Cw7_isi5\Cw7_isi5\obj\Debug\net6.0-windows\Cw7_isi5.csproj.GenerateResource.cache
+C:\ruslanGit\Cw7_isi5\Cw7_isi5\obj\Debug\net6.0-windows\Cw7_isi5.GeneratedMSBuildEditorConfig.editorconfig
+C:\ruslanGit\Cw7_isi5\Cw7_isi5\obj\Debug\net6.0-windows\Cw7_isi5.AssemblyInfoInputs.cache
+C:\ruslanGit\Cw7_isi5\Cw7_isi5\obj\Debug\net6.0-windows\Cw7_isi5.AssemblyInfo.cs
+C:\ruslanGit\Cw7_isi5\Cw7_isi5\obj\Debug\net6.0-windows\Cw7_isi5.csproj.CoreCompileInputs.cache
+C:\ruslanGit\Cw7_isi5\Cw7_isi5\obj\Debug\net6.0-windows\Cw7_isi5.dll
+C:\ruslanGit\Cw7_isi5\Cw7_isi5\obj\Debug\net6.0-windows\refint\Cw7_isi5.dll
+C:\ruslanGit\Cw7_isi5\Cw7_isi5\obj\Debug\net6.0-windows\Cw7_isi5.pdb
+C:\ruslanGit\Cw7_isi5\Cw7_isi5\obj\Debug\net6.0-windows\Cw7_isi5.genruntimeconfig.cache
+C:\ruslanGit\Cw7_isi5\Cw7_isi5\obj\Debug\net6.0-windows\ref\Cw7_isi5.dll
