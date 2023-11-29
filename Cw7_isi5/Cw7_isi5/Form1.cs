@@ -24,6 +24,27 @@ namespace Cw7_isi5
             }
         }
 
+        public void wyswietlenieDzieci(Wezel3 w)
+        {
+            if(w == null)
+            {
+                return;
+            }
+            if(w.lewe_dz != null && w.prawe_dz != null)
+            {
+                MessageBox.Show(w.lewe_dz.wart.ToString() + w.prawe_dz.wart.ToString());
+            } else if (w.lewe_dz != null)
+            {
+                MessageBox.Show(w.lewe_dz.wart.ToString());
+            } else if (w.prawe_dz != null)
+            {
+                MessageBox.Show(w.prawe_dz.wart.ToString());
+            } else
+            {
+                MessageBox.Show("wtf");
+            }
+        }
+
         public void A2(Wezel3 w)
         {
             
@@ -47,7 +68,7 @@ namespace Cw7_isi5
             A(wezel1);
             MessageBox.Show(napis);*/
 
-            Wezel3 w1 = new Wezel3(1);
+            /*Wezel3 w1 = new Wezel3(1);
             Wezel3 w2 = new Wezel3(2);
             Wezel3 w3 = new Wezel3(3);
             Wezel3 w4 = new Wezel3(4);
@@ -65,7 +86,22 @@ namespace Cw7_isi5
             w3.lewe_dz = w6;
             w3.prawe_dz = w7;
 
-            w5.lewe_dz = w8;
+            w5.lewe_dz = w8;*/
+
+            Wezel3 w1 = new Wezel3(5);
+            Wezel3 w2 = new Wezel3(4);
+            Wezel3 w3 = new Wezel3(4);
+            Wezel3 w4 = new Wezel3(8);
+            Wezel3 w5 = new Wezel3(2);
+
+            DrzewoBinarne drzewo = new DrzewoBinarne(w1);
+            drzewo.Add(w2);
+            drzewo.Add(w3);
+            drzewo.Add(w4);
+            drzewo.Add(w5);
+
+            wyswietlenieDzieci(w2);
+            wyswietlenieDzieci(drzewo.znajdz(9));
 
 
         }
@@ -119,8 +155,20 @@ namespace Cw7_isi5
 
         public Wezel3(int wart)
         {
-            int watr = wart;
+            this.wart = wart;
         }
+        public void Add(Wezel3 w)
+        {
+            w.rodzic = this;
+            if (w.wart < this.wart)
+            {
+                this.lewe_dz = w;
+            } else if(w.wart >= this.wart)
+            {
+                this.prawe_dz = w;
+            }
+        }
+
     }
 
     public class DrzewoBinarne
@@ -128,16 +176,81 @@ namespace Cw7_isi5
         public Wezel3 korzen;
         public int liczba_wezlow = 0;
 
-        void Add(Wezel3 w)
+        public DrzewoBinarne(Wezel3 korzen) 
         {
-            if(w.wart < korzen.wart)
+            this.korzen = korzen;
+        }
+
+        public void Add(Wezel3 w)
+        {
+            Wezel3 rodzic = this.znajdzRodzica(w);
+            rodzic.Add(w);
+        }
+
+        public Wezel3 znajdzRodzica(Wezel3 w)
+        {
+            Wezel3 ko = this.korzen;
+            while(true)
             {
-                if(korzen.lewe_dz != null)
+                if(w.wart < ko.wart)
                 {
-                    Add(korzen.lewe_dz);
+                    if(ko.lewe_dz != null)
+                    {
+                        ko = ko.lewe_dz;
+                    } else
+                    {
+                        return ko;
+                    }
+                } else if(w.wart >= ko.wart)
+                {
+                    if (ko.prawe_dz != null)
+                    {
+                        ko = ko.prawe_dz;
+                    }
+                    else
+                    {
+                        return ko;
+                    }
                 }
             }
         }
+
+        public Wezel3 znajdz(int liczba)
+        {
+            Wezel3 ko = this.korzen;
+            while (true)
+            {
+                if(liczba != ko.wart)
+                {
+                    if (liczba < ko.wart)
+                    {
+                        if (ko.lewe_dz != null)
+                        {
+                            ko = ko.lewe_dz;
+                        }
+                        else
+                        {
+                            return null;
+                        }
+                    }
+                    else if (liczba >= ko.wart)
+                    {
+                        if (ko.prawe_dz != null)
+                        {
+                            ko = ko.prawe_dz;
+                        }
+                        else
+                        {
+                            return null;
+                        }
+                    }
+                } else
+                {
+                    return ko;
+                }
+            }
+        }
+
     }
 
 }
