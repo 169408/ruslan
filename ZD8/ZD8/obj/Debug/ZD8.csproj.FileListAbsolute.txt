@@ -1,0 +1,10 @@
+D:\programming\csharph\ZD8\ZD8\bin\Debug\ZD8.exe.config
+D:\programming\csharph\ZD8\ZD8\bin\Debug\ZD8.exe
+D:\programming\csharph\ZD8\ZD8\bin\Debug\ZD8.pdb
+D:\programming\csharph\ZD8\ZD8\obj\Debug\ZD8.csproj.AssemblyReference.cache
+D:\programming\csharph\ZD8\ZD8\obj\Debug\ZD8.Form1.resources
+D:\programming\csharph\ZD8\ZD8\obj\Debug\ZD8.Properties.Resources.resources
+D:\programming\csharph\ZD8\ZD8\obj\Debug\ZD8.csproj.GenerateResource.cache
+D:\programming\csharph\ZD8\ZD8\obj\Debug\ZD8.csproj.CoreCompileInputs.cache
+D:\programming\csharph\ZD8\ZD8\obj\Debug\ZD8.exe
+D:\programming\csharph\ZD8\ZD8\obj\Debug\ZD8.pdb
