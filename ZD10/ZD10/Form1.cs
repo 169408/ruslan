@@ -491,6 +491,80 @@ namespace ZD10
             }
             return;
         }
+
+        public void Usun2(Wezel3 w)
+        {
+            // 1) gdy niema dzieci , to odwięzujemy węzel
+            if (w.lewe_dz == null && w.prawe_dz == null)
+            {
+                if (w.rodzic.wart > w.wart)
+                {
+                    w.rodzic.lewe_dz = null;
+                }
+                else
+                {
+                    w.rodzic.prawe_dz = null;
+                }
+                w.rodzic = null;
+                return;
+            }
+            // 2) gdy jest jedno dziecko , to wchodzi na miejsce rodzica
+            if (w.lewe_dz != null && w.prawe_dz == null)
+            {
+                if (w.rodzic.wart > w.wart)
+                {
+                    w.rodzic.lewe_dz = w.lewe_dz;
+                }
+                else
+                {
+                    w.rodzic.prawe_dz = w.lewe_dz;
+                }
+                w.lewe_dz.rodzic = w.rodzic;
+                w.rodzic = null;
+                return;
+            }
+            if (w.lewe_dz == null && w.prawe_dz != null)
+            {
+                if (w.rodzic.wart > w.wart)
+                {
+                    w.rodzic.lewe_dz = w.prawe_dz;
+                }
+                else
+                {
+                    w.rodzic.prawe_dz = w.prawe_dz;
+                }
+                w.prawe_dz.rodzic = w.rodzic;
+                w.rodzic = null;
+                return;
+            }
+            // 3) gdy są dwoje dzici,  to szukamy nastepnika i zamieniami miejscami
+            if (w.lewe_dz != null && w.prawe_dz != null)
+            {
+                Wezel3 temp = w.prawe_dz;
+                if (w.rodzic.wart > w.wart)
+                {
+                    w.rodzic.lewe_dz = temp;
+                }
+                else
+                {
+                    w.rodzic.prawe_dz = temp;
+                }
+
+                temp.rodzic = w.rodzic;
+                while(temp.lewe_dz != null)
+                {
+                    temp = temp.lewe_dz;
+                }
+                temp.lewe_dz = w.lewe_dz;
+                w.lewe_dz.rodzic = temp;
+
+                w.rodzic = null;
+                w.lewe_dz = null;
+                w.prawe_dz = null;
+                return;
+            }
+            return;
+        }
     }
 
 }
