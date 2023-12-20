@@ -1,0 +1,11 @@
+C:\ruslanGit\Cw_10_isi5\Cw_10_isi5\bin\Debug\Cw_10_isi5.exe.config
+C:\ruslanGit\Cw_10_isi5\Cw_10_isi5\bin\Debug\Cw_10_isi5.exe
+C:\ruslanGit\Cw_10_isi5\Cw_10_isi5\bin\Debug\Cw_10_isi5.pdb
+C:\ruslanGit\Cw_10_isi5\Cw_10_isi5\obj\Debug\Cw_10_isi5.csproj.AssemblyReference.cache
+C:\ruslanGit\Cw_10_isi5\Cw_10_isi5\obj\Debug\Cw_10_isi5.csproj.SuggestedBindingRedirects.cache
+C:\ruslanGit\Cw_10_isi5\Cw_10_isi5\obj\Debug\Cw_10_isi5.Form1.resources
+C:\ruslanGit\Cw_10_isi5\Cw_10_isi5\obj\Debug\Cw_10_isi5.Properties.Resources.resources
+C:\ruslanGit\Cw_10_isi5\Cw_10_isi5\obj\Debug\Cw_10_isi5.csproj.GenerateResource.cache
+C:\ruslanGit\Cw_10_isi5\Cw_10_isi5\obj\Debug\Cw_10_isi5.csproj.CoreCompileInputs.cache
+C:\ruslanGit\Cw_10_isi5\Cw_10_isi5\obj\Debug\Cw_10_isi5.exe
+C:\ruslanGit\Cw_10_isi5\Cw_10_isi5\obj\Debug\Cw_10_isi5.pdb
