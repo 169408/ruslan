@@ -1,0 +1,10 @@
+D:\programming\csharph\ZD12\ZD12\bin\Debug\ZD12.exe.config
+D:\programming\csharph\ZD12\ZD12\bin\Debug\ZD12.exe
+D:\programming\csharph\ZD12\ZD12\bin\Debug\ZD12.pdb
+D:\programming\csharph\ZD12\ZD12\obj\Debug\ZD12.csproj.AssemblyReference.cache
+D:\programming\csharph\ZD12\ZD12\obj\Debug\ZD12.Form1.resources
+D:\programming\csharph\ZD12\ZD12\obj\Debug\ZD12.Properties.Resources.resources
+D:\programming\csharph\ZD12\ZD12\obj\Debug\ZD12.csproj.GenerateResource.cache
+D:\programming\csharph\ZD12\ZD12\obj\Debug\ZD12.csproj.CoreCompileInputs.cache
+D:\programming\csharph\ZD12\ZD12\obj\Debug\ZD12.exe
+D:\programming\csharph\ZD12\ZD12\obj\Debug\ZD12.pdb
