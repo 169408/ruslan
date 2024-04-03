@@ -1,0 +1,61 @@
+
+Windows IP Configuration
+
+
+Ethernet adapter vEthernet (Default Switch):
+
+   Connection-specific DNS Suffix  . : 
+   Link-local IPv6 Address . . . . . : fe80::430:fbd9:4587:ac73%33
+   IPv4 Address. . . . . . . . . . . : 172.22.80.1
+   Subnet Mask . . . . . . . . . . . : 255.255.240.0
+   Default Gateway . . . . . . . . . : 
+
+Ethernet adapter VirtualBox Host-Only Network:
+
+   Connection-specific DNS Suffix  . : 
+   Link-local IPv6 Address . . . . . : fe80::7c5c:5c50:e8c6:e40a%21
+   IPv4 Address. . . . . . . . . . . : 192.168.56.1
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : 
+
+Ethernet adapter Ethernet 2:
+
+   Connection-specific DNS Suffix  . : wmii.local
+   Link-local IPv6 Address . . . . . : fe80::e8e2:4a7f:e2b4:ad1a%15
+   IPv4 Address. . . . . . . . . . . : 192.168.13.16
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : 192.168.13.1
+
+Ethernet adapter VMware Network Adapter VMnet1:
+
+   Connection-specific DNS Suffix  . : 
+   Link-local IPv6 Address . . . . . : fe80::d1c7:c291:8bc0:1a43%17
+   Autoconfiguration IPv4 Address. . : 169.254.159.126
+   Subnet Mask . . . . . . . . . . . : 255.255.0.0
+   Default Gateway . . . . . . . . . : 
+
+Ethernet adapter VMware Network Adapter VMnet8:
+
+   Connection-specific DNS Suffix  . : 
+   Link-local IPv6 Address . . . . . : fe80::7e4d:7386:5dc4:ac0%11
+   Autoconfiguration IPv4 Address. . : 169.254.214.205
+   Subnet Mask . . . . . . . . . . . : 255.255.0.0
+   Default Gateway . . . . . . . . . : 
+
+Ethernet adapter Ethernet 3:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . : 
+
+
+
+Pinging 192.168.13.158 with 32 bytes of data:
+Reply from 192.168.13.158: bytes=32 time<1ms TTL=128
+Reply from 192.168.13.158: bytes=32 time<1ms TTL=128
+Reply from 192.168.13.158: bytes=32 time<1ms TTL=128
+Reply from 192.168.13.158: bytes=32 time<1ms TTL=128
+
+Ping statistics for 192.168.13.158:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms
