@@ -1,0 +1,4 @@
+case "$zm1" in "kot") echo kot; pwd; ls;; "lato"|"karo") echo "Opcja2"; tree;; "lis") echo $PATH;; 
+*) echo "Inna opcja"; who am i; esac
+
+while [ $liczba -le 35 ]; do  echo $liczba; liczba=$[$liczba+1]; done
